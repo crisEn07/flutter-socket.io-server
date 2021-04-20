@@ -7,7 +7,7 @@
      <title>SOCKETS SERVER</title>
  </head>
  <body>
-     <h1>ACCESO DENEGEDO</h1>
+     <h1>ACCESO DENEGADO</h1>
      <script src="socket.io/socket.io.js"></script>
      <script>
          var  socket = io();
@@ -21,8 +21,12 @@
 
          socket.emit('mensaje',{nombre:'nombre'});
 
-         socket.on('mensaje',function(payload){
+         socket.on('nuevo-mensaje',function(payload){
              console.log('Escuchando: ',payload);
+         });
+         socket.on('active-bands',function(payload){
+             console.clear();
+             console.table(payload);
          });
 
      </script>
